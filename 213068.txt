@@ -1,0 +1,76 @@
+4. $ mkdir SI_2023_lab1_213068  --> се креира директориум
+$ cd SI_2023_lab1_213068  --> влегуваме во тој директориум
+$ git init  -->  го правиме директориумот да биде наш локален репозиториум
+
+5. $ git remote add origin https://github.com/nikolovsk/SI_2023_lab1_213068.git  --> го додаваме remote репозиториумот и го поврзуваме со нашиот локален репозиториум (origin е името на remote репозиториумот, а линкот до него е адресата)
+
+6. $ nano README.md  --> додаваме датотека така што ни се отвара едитор во кој ги запишуваме бараните податоци и зачувуваме
+$ git add README.md  --> ја додаваме датотеката на stage
+$ git commit -m "Initial commit"  --> го правиме нашиот прв commit
+
+7. $ nano SILab1.java  --> додаваме фајл при што во едиторот ја копираме содржината од дадениот линк и зачувуваме
+$ git add SILab1.java  --> го додаваме фајлот на stage
+$ git commit -m "Add java class"  --> му правиме commit
+
+8. $ git push -u origin master  --> правиме синхронизација со remote репозиториумот
+
+9. $ git branch bug1  --> со оваа команда додаваме нова гранка/се разгрануваме, каде bug1 е името на гранката (истото го повторуваме и за bug2 и bug3)
+$ git branch bug2
+$ git branch bug3
+
+10. $ git checkout bug1  --> се префрлуваме на гранката bug1
+
+11. $ nano SILab1.java  --> со оваа команда повторно го отворив фајлот кој ја содржи класата (овој пат од гранката bug1) и ја поправив грешката во for циклусот за читање на броеви од стандарден влез
+$ git add SILab1.java  --> го додаваме фајлот на stage
+$ git commit -m "Fix wrong loop for reading"  --> му правиме commit
+
+12. $ git checkout bug2  --> се префрламе на гранката bug2
+
+13. $ nano SILab1.java  --> ја поправам грешката во методот filterOddNumbers
+$ git add SILab1.java  --> го додавам фајлот на stage
+$ git commit -m "Fix wrong condition in filterOddNumbers"  --> му правам commit
+
+14. $ git checkout bug3  --> се префрлам на гранката bug3
+
+15. $ nano SILab1.java  --> ја поправив грешката во методот sumEvenNumbers
+$ git add SILab1.java  --> го додавам фајлот на stage
+$ git commit -m "Fix method sumEvenNumbers"  --> му правам commit
+
+16. $ git push --all origin  --> повторно правиме синхронизација со remote репозиториумот, односно сите наши комити од новите гранки (локално) ги синхронизираме со origin
+
+17. $ git checkout master  --> се префрламе на гранката master
+
+18. $ git merge bug1  --> ја спојуваме гранката bug1 кон master, тука не се јави конфликт и спојувањето се изврши со Fast Forward стратегијата
+
+19. $ git push --all origin  --> ги синхронизираме сите гранки со remote репозиториумот
+
+20. $ git merge bug2  --> ја споивме гранката bug2 кон master, немаше конфликт и спојувањето беше Recursive
+
+21. $ git push --all origin  --> правиме повторно синхронизација со remote репозиториумот
+
+22. $ git checkout bug3  --> се префрламе на гранката bug3
+
+23. $ git rebase master  --> правиме rebase спрема гранката master така што се она што се наоѓа на гранката bug3, а го нема на master се става во temp областа, потоа датотеките од master кои ги нема на bug3 се префрлаат bug3 и потоа се враќаат оние датотеки од temp
+
+24. $ git checkout master  --> се префрламе на гранката master
+
+25. $ git merge bug3  --> ја спојуваме гранката bug3 кон master, нема конфликт и спојувањето се изврши според Fast Forward стратегијата
+
+26. $ git push --all origin  --> синхронизираме со remote репозиториумот, но гранката bug3 е одбиена - тоа го решаваме со $ git push --force при што синхрониацијата е успешно извршена
+
+27. $ nano logs.txt  --> ја додаваме датотеката logs.txt
+$ git add logs.txt  --> ја додаваме датотеката logs.txt на stage
+$ git add 213068.txt  --> ја додаваме датотеката 213068.txt на stage
+$ git commit -m "Final commit"  --> правиме commit на двете датотеки
+
+28. $ git push --all origin  --> ги синхронизираме сите гранки со remote репозиториумот
+$ git push origin bug3 --force  --> насилна (forced) синхронизација на гранката bug3
+
+30. $ git clone https://github.com/nikolovsk/SI2023.git  --> го клонирам репозиториумот на кој што претходно му направив fork, истиот се клонира во 'SI2023'
+
+31. $ cd SI2023  -->  влегувам во локалниот репозиториум SI2023
+$ nano 213068.txt  -->  додавам датотека
+$ git add 213068.txt  --> ja додавам датотеката на stage
+$ git commit -m "Add file"  --> правам commit
+
+32. $ git push origin master --> ја синхронизирам master гранката на remote репото
